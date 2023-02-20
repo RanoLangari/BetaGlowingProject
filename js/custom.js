@@ -141,3 +141,15 @@ document.getElementById('').onclick = function() {
 
 const greeting = document.getElementById('greeting');
 greeting.innerHTML = greeting.innerHTML.replace('Hello', 'Hi');
+
+const textContainer = document.getElementById('font-berjalan');
+const text = textContainer.innerText;
+
+textContainer.innerText = '';
+
+for (let i = 0; i < text.length; i++) {
+  const letter = document.createElement('span');
+  letter.textContent = text[i];
+  letter.style.animationDelay = `${i * 0.1}s`;
+  textContainer.appendChild(letter);
+}
