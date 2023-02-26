@@ -31,11 +31,15 @@ if(isset($_GET['Submit'])){
 	<title>BetaGlowing Login Page</title>
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
 	<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
-	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="bg.css">
 
 </head>
 
 <body>
+	<div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
 		<!-- partial:index.partial.html -->
 		<div class="section">
 		<div class="container">
