@@ -153,3 +153,4 @@ for (let i = 0; i < text.length; i++) {
   letter.style.animationDelay = `${i * 0.1}s`;
   textContainer.appendChild(letter);
 }
+

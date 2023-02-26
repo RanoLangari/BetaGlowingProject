@@ -1,3 +1,11 @@
+<?php 
+require("config.php");
+
+$data = mysqli_query($conn, "SELECT * FROM user");
+$row = mysqli_fetch_assoc($data);
+
+?>
+
 <!doctype html>
 <html>
 
@@ -32,7 +40,8 @@
       <div class="header_box">
         <div class="logo">
           <h2 id="font-berjalan"
-            style="display: flex; align-items: center; color: white; font-family: 'Bebas Neue', cursive;">BetaGlowing Shop
+            style="display: flex; align-items: center; color: white; font-family: 'Bebas Neue', cursive;">BetaGlowing
+            Shop
           </h2>
         </div>
         <nav class="navbar navbar-inverse" role="navigation">
@@ -49,7 +58,13 @@
               <li><a href="#Portfolio" class="scroll-link">Galeri</a></li>
               <li><a href="#team" class="scroll-link">Testimonials</a></li>
               <li><a href="#contact" class="scroll-link">Contact</a></li>
-              <li style=" justify-content: flex-end; margin-left: 30px;"> <a href="Gate/login.html"> <i class="fa fa-user fa2x"; style="margin-right: 10px;"></i>Login</a></li>
+              <li style=" justify-content: flex-end; margin-left: 30px;">
+                <?php if (isset($_SESSION['login'])) : ?>
+                <a href="user/profile.php"> <i class="fa-solid fa-user" style="margin-right: 10px;"></i>Profile</a>
+                <?php else : ?>
+                <a href="Gate/login.php"><i class="fa-solid fa-right-to-bracket" style="margin-right: 10px;" ></i>Login</a>
+                <?php endif; ?>
+              </li>
             </ul>
           </div>
         </nav>
@@ -125,10 +140,12 @@
         <div class="row">
           <div class="col-lg-4">
             <div class="service_block">
-              <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i class="fa fa-cart-plus"></i></span>
+              <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i
+                    class="fa fa-cart-plus"></i></span>
               </div>
               <h3 class="animated fadeInUp wow">Tambahkan Ke Keranjang</h3>
-              <p class="animated fadeInDown wow">pilih produk yang anda ingin beli, setelah itu tambahkan ke keranjang</p>
+              <p class="animated fadeInDown wow">pilih produk yang anda ingin beli, setelah itu tambahkan ke keranjang
+              </p>
             </div>
           </div>
           <div class="col-lg-4 borderLeft">
@@ -138,7 +155,7 @@
               <h3 class="animated fadeInUp wow">Pembayaran Mudah</h3>
               <p class="animated fadeInDown wow">Nikmati Pembayaran Yang Cepat dan Mudah</p>
             </div>
-          </div>          
+          </div>
           <div class="col-lg-4 borderLeft">
             <div class="service_block">
               <div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa fa-truck"></i></span>
@@ -407,13 +424,15 @@
   </section>
   <!--/Portfolio -->
 
-  <section class="page_section" id="clients"><!--page_section-->
-  <!--page_section-->
-  <div class="client_logos"><!--client_logos-->
-    <div class="container">
-      </ul>
+  <section class="page_section" id="clients">
+    <!--page_section-->
+    <!--page_section-->
+    <div class="client_logos">
+      <!--client_logos-->
+      <div class="container">
+        </ul>
+      </div>
     </div>
-  </div>
   </section>
   <!--client_logos-->
 
