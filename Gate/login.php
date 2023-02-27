@@ -12,8 +12,8 @@ if (isset($_POST['Submit'])) {
 	}
 }
 
-if(isset($_GET['Submit'])){
-	if(Login($_GET) > 0){
+if(isset($_POST['masuk'])){
+	if(Login($_POST) > 0){
 
 	}else{
 		echo mysqli_error($conn);
@@ -55,7 +55,7 @@ if(isset($_GET['Submit'])){
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Log In</h4>
-											<form action="" method="get">
+											<form action="" method="post">
 											<div class="form-group">
 												<input type="text" name="username" class="form-style"
 													placeholder="Your Username" id="username" autocomplete="off">
@@ -66,7 +66,7 @@ if(isset($_GET['Submit'])){
 													placeholder="Your Password" id="pass" autocomplete="off">
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
-											<button type="submit" name="Submit" class="btn mt-4">Login</button>
+											<button type="submit" name="masuk" class="btn mt-4">Login</button>
 											</form>
 										</div>
 									</div>
@@ -97,7 +97,7 @@ if(isset($_GET['Submit'])){
 														autocomplete="off">
 													<i class="input-icon uil uil-lock-alt"></i>
 												</div>
-												<button type="submit" name="Submit" class="btn mt-4">daftar</button>
+												<button type="Submit" name="Submit" class="btn mt-4">daftar</button>
 											</form>
 										</div>
 									</div>
