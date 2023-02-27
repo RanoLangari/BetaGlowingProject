@@ -10,7 +10,7 @@ $id = $_SESSION["id"];
 $row = query("SELECT * FROM user WHERE id = $id")[0];
 
 if(isset($_POST["Submit"])){
-    if(ubah($_POST) > 0){
+    if(ubahdata($_POST) > 0){
         echo "
             <script>
                 alert('Data Berhasil Diubah');
@@ -24,6 +24,26 @@ if(isset($_POST["Submit"])){
                 document.location.href = 'profile.php';
             </script>
         ";
+    }
+}
+
+if(isset($_POST['Simpan'])){
+    if(UbahPassword($_POST) > 0){
+        echo "
+            <script>
+                alert('Password Berhasil Diubah');
+                document.location.href = 'profile.php';
+            </script>
+        ";
+    }else{
+        echo "
+            <script>
+                alert('Password Gagal Diubah');
+                document.location.href = 'profile.php';
+            </script>
+        ";
+        
+        mysqli_error($conn);
     }
 }
 
@@ -150,7 +170,6 @@ if(isset($_POST["Submit"])){
                                         <div class="card-body">
                                             <form action="" method="post">
                                                 <input type="text" name="id" value="<?=$row['id']?>" hidden>
-                                                <input type="text" name="password" value="<?=$row['pass']?>" hidden>
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong></label><input class="form-control" type="text" id="username" name="username" value="<?=$row['username']?>" required></div>
@@ -159,17 +178,30 @@ if(isset($_POST["Submit"])){
                                                         <div class="mb-3"><label class="form-label" for="email"><strong>Email Address</strong></label><input class="form-control" type="email" id="email" name="email" value="<?=$row['email']?>" required></div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="pass"><strong>Masukan Password Lama</strong></label><input class="form-control" type="password" id="pass" name="pass" required></div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="pass2"><strong>Masukan Password baru</strong></label><input class="form-control" type="password" id="pass2" name="pass2"required></div>
-                                                    </div>
-                                                </div>
                                                 <div class="mb-3"><button class="btn btn-primary btn-sm" type="Submit" name="Submit">Save Settings</button></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div clas="row">
+                            <div class="col">
+                                    <div class="card shadow mb-3">
+                                        <div class="card-header py-3">
+                                            <p class="text-primary m-0 fw-bold">Ganti Password</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <form action="" method="post">
+                                                <input type="text" name="id" value="<?=$row['id']?>" hidden>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="mb-3"><label class="form-label" for="oldPass"><strong>Masukan Password Lama</strong></label><input class="form-control" type="password" id="oldPass" name="oldPass"required></div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="mb-3"><label class="form-label" for="newPass"><strong>Masukan Password Baru</strong></label><input class="form-control" type="password" id="newPass" name="newPass"required></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3"><button class="btn btn-primary btn-sm" type="Submit" name="Simpan">Save Settings</button></div>
                                             </form>
                                         </div>
                                     </div>
@@ -177,6 +209,7 @@ if(isset($_POST["Submit"])){
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
             <footer class="bg-white sticky-footer">

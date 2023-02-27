@@ -13,7 +13,7 @@ if (isset($_POST['Submit'])) {
 }
 
 if(isset($_POST['masuk'])){
-	if(Login($_POST) > 0){
+	if(login($_POST) > 0){
 
 	}else{
 		echo mysqli_error($conn);

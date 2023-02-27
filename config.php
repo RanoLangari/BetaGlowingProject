@@ -77,35 +77,50 @@ function Login($data)
     return $error;
 }
 
-function ubah($data)
+function ubahdata($data)
 {
-    //buat function ubah
     global $conn;
     $id = $data["id"];
     $Username = $data["username"];
     $email = $data["email"];
-    $realpass = $data["password"];
-    $pass = $data["pass"];
-    $pass2 = $data["pass2"];
-    $Password = Password_hash($pass2, PASSWORD_DEFAULT);
 
-    // cek konfirmasi Password
-    if(password_verify($pass, $realpass)){
-        $query = "UPDATE user 
+    $query = "UPDATE user 
                 SET
                 username = '$Username',
-                email = '$email',
-                pass = '$Password'
+                email = '$email'
                 WHERE id = $id
                 ";
      mysqli_query($conn, $query);
 
      return mysqli_affected_rows($conn);
+}
+
+function UbahPassword($data)
+{
+    global $conn;
+    $id = $data["id"];
+    $oldPass = $data["oldPass"];
+    $pass = $data["newPass"];
+
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE id = '$id'");
+    $row = mysqli_fetch_assoc($result);
+    $password = $row["pass"];
+    if(password_verify($oldPass,$password))
+    {
+        $password = password_hash($pass, PASSWORD_DEFAULT);
+        $query = "UPDATE user 
+                SET
+                pass = '$password'
+                WHERE id = $id
+                ";
+        mysqli_query($conn, $query);
+        return mysqli_affected_rows($conn);
     }
     echo "<script>
-                alert('konfirmasi Password tidak sesuai');
+                alert('Password lama tidak sesuai');
             </script>";
         return false;
+
 
 
 }
