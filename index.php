@@ -17,6 +17,7 @@ $row = mysqli_fetch_assoc($data);
   <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/style.css" rel="stylesheet" type="text/css">
   <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/animasi.css">
   <link rel="stylesheet" href="css/fontawesome.min.css">
   <link href="css/animate.css" rel="stylesheet" type="text/css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,610 +34,633 @@ $row = mysqli_fetch_assoc($data);
 </head>
 
 <body>
-
-  <!--Header_section-->
-  <header id="header_wrapper">
-    <div class="container" style="width: 90%;">
-      <div class="header_box">
-        <div class="logo">
-          <h2 id="font-berjalan"
-            style="display: flex; align-items: center; color: white; font-family: 'Bebas Neue', cursive;">BetaGlowing
-            Shop
-          </h2>
+  <div id="wrapper">
+    <!--Header_section-->
+    <header id="header_wrapper">
+      <div class="container" style="width: 90%;">
+        <div class="header_box">
+          <div class="logo">
+            <h2 id="font-berjalan"
+              style="display: flex; align-items: center; color: white; font-family: 'Bebas Neue', cursive;">BetaGlowing
+              Shop
+            </h2>
+          </div>
+          <nav class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+              <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse"
+                data-target="#main-nav">
+                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                  class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+            <div id="main-nav" class="collapse navbar-collapse navStyle">
+              <ul class="nav navbar-nav" id="mainNav">
+                <li class="active"><a href="#hero_section" class="scroll-link">Home</a></li>
+                <li><a href="#aboutUs" class="scroll-link">About Us</a></li>
+                <li><a href="#service" class="scroll-link">Services</a></li>
+                <li><a href="#Portfolio" class="scroll-link">Galeri</a></li>
+                <li><a href="#team" class="scroll-link">Testimonials</a></li>
+                <li><a href="#contact" class="scroll-link">Contact</a></li>
+                <li style=" justify-content: flex-end; margin-left: 30px;">
+                  <?php if(isset($_SESSION['admin'])): ?>
+                  <a href="Admin/profile.php"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Profile</a>
+                  <?php endif; ?>
+                  <?php if(isset($_SESSION['user'])): ?>
+                  <a href="user/profile.php"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Profile</a>
+                  <?php endif; ?>
+                  <?php if(!isset($_SESSION['user']) && !isset($_SESSION['admin'])): ?>
+                  <a href="Gate/login.php"><i class="fa-solid fa-right-to-bracket"
+                      style="margin-right: 10px;"></i>Login</a>
+                  <?php endif; ?>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-        <nav class="navbar navbar-inverse" role="navigation">
-          <div class="navbar-header">
-            <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
-              <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
-                class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          </div>
-          <div id="main-nav" class="collapse navbar-collapse navStyle">
-            <ul class="nav navbar-nav" id="mainNav">
-              <li class="active"><a href="#hero_section" class="scroll-link">Home</a></li>
-              <li><a href="#aboutUs" class="scroll-link">About Us</a></li>
-              <li><a href="#service" class="scroll-link">Services</a></li>
-              <li><a href="#Portfolio" class="scroll-link">Galeri</a></li>
-              <li><a href="#team" class="scroll-link">Testimonials</a></li>
-              <li><a href="#contact" class="scroll-link">Contact</a></li>
-              <li style=" justify-content: flex-end; margin-left: 30px;">
-              <?php if(isset($_SESSION['admin'])): ?>
-                <a href="Admin/profile.php"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Profile</a>
-              <?php endif; ?>
-              <?php if(isset($_SESSION['user'])): ?>
-                <a href="user/profile.php"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Profile</a>
-              <?php endif; ?>
-              <?php if(!isset($_SESSION['user']) && !isset($_SESSION['admin'])): ?>
-                <a href="Gate/login.php"><i class="fa-solid fa-right-to-bracket" style="margin-right: 10px;" ></i>Login</a>
-              <?php endif; ?>
-              </li>
-            </ul>
-          </div>
-        </nav>
       </div>
-    </div>
-  </header>
-  <!--Header_section-->
+    </header>
+    <!--Header_section-->
 
-  <!--Hero_Section-->
-  <section id="hero_section" class="top_cont_outer">
-    <div class="hero_wrapper">
-      <div class="container">
-        <div class="hero_section">
-          <div class="row">
-            <div class="col-lg-5 col-sm-7">
-              <div class="top_left_cont zoomIn wow animated">
-                <h2 style="font-family: 'Gloock', serif;">Ingin Kulitmu Lebih Bersinar dan Sehat?
-                </h2>
-                <p>Temukan produk skincare terbaik dari kami dan nikmati hasilnya dalam waktu singkat!</p>
-                <a href="#service" class="read_more2">Read more</a>
+    <!--Hero_Section-->
+    <section id="hero_section" class="top_cont_outer">
+      <div class="hero_wrapper">
+        <div class="container">
+          <div class="hero_section">
+            <div class="row">
+              <div class="col-lg-5 col-sm-7">
+                <div class="top_left_cont zoomIn wow animated">
+                  <h2 style="font-family: 'Gloock', serif;">Ingin Kulitmu Lebih Bersinar dan Sehat?
+                  </h2>
+                  <p>Temukan produk skincare terbaik dari kami dan nikmati hasilnya dalam waktu singkat!</p>
+                  <a href="#service" class="read_more2">Read more</a>
+                </div>
+              </div>
+              <div>
+                <img src="img/6.png" class="bannerImg zoomIn wow animated" style="height: 100%;" alt="" />
               </div>
             </div>
-            <div>
-              <img src="img/6.png" class="bannerImg zoomIn wow animated" style="height: 100%;" alt="" />
-            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!--Hero_Section-->
+    </section>
+    <!--Hero_Section-->
 
-  <section id="aboutUs">
+    <section id="aboutUs">
+      <!--Aboutus-->
+      <div class="inner_wrapper">
+        <div class="container">
+          <h2>About Us</h2>
+          <div class="inner_section">
+            <div class="row">
+              <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12 pull-right"><img src="img/about-img.jpg"
+                  class="img-circle delay-03s animated wow zoomIn" alt=""></div>
+              <div class=" col-lg-7 col-md-7 col-sm-7 col-xs-12 pull-left">
+                <div class=" delay-01s animated fadeInDown wow animated">
+                  <h3>Lorem Ipsum has been the industry's standard dummy text ever..</h3><br />
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book.PageMaker including versions of Lorem Ipsum.</p> <br />
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap
+                    into electronic typesetting, remaining essentially unchanged like Aldus PageMaker including versions
+                    of Lorem Ipsum.</p>
+                </div>
+                <div class="work_bottom"> <span>Want to know more..</span> <a href="#contact"
+                    class="contact_btn">Contact
+                    Us</a> </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
     <!--Aboutus-->
-    <div class="inner_wrapper">
+
+
+    <!--Service-->
+    <section id="service">
       <div class="container">
-        <h2>About Us</h2>
-        <div class="inner_section">
+        <h2>Services</h2>
+        <div class="service_wrapper">
           <div class="row">
-            <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12 pull-right"><img src="img/about-img.jpg"
-                class="img-circle delay-03s animated wow zoomIn" alt=""></div>
-            <div class=" col-lg-7 col-md-7 col-sm-7 col-xs-12 pull-left">
-              <div class=" delay-01s animated fadeInDown wow animated">
-                <h3>Lorem Ipsum has been the industry's standard dummy text ever..</h3><br />
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book.PageMaker including versions of Lorem Ipsum.</p> <br />
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                  into electronic typesetting, remaining essentially unchanged like Aldus PageMaker including versions
-                  of Lorem Ipsum.</p>
+            <div class="col-lg-4">
+              <div class="service_block">
+                <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i
+                      class="fa fa-cart-plus"></i></span>
+                </div>
+                <h3 class="animated fadeInUp wow">Tambahkan Ke Keranjang</h3>
+                <p class="animated fadeInDown wow">pilih produk yang anda ingin beli, setelah itu tambahkan ke keranjang
+                </p>
               </div>
-              <div class="work_bottom"> <span>Want to know more..</span> <a href="#contact" class="contact_btn">Contact
-                  Us</a> </div>
             </div>
-
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--Aboutus-->
-
-
-  <!--Service-->
-  <section id="service">
-    <div class="container">
-      <h2>Services</h2>
-      <div class="service_wrapper">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="service_block">
-              <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i
-                    class="fa fa-cart-plus"></i></span>
+            <div class="col-lg-4 borderLeft">
+              <div class="service_block">
+                <div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="fa fa-credit-card"></i></span>
+                </div>
+                <h3 class="animated fadeInUp wow">Pembayaran Mudah</h3>
+                <p class="animated fadeInDown wow">Nikmati Pembayaran Yang Cepat dan Mudah</p>
               </div>
-              <h3 class="animated fadeInUp wow">Tambahkan Ke Keranjang</h3>
-              <p class="animated fadeInDown wow">pilih produk yang anda ingin beli, setelah itu tambahkan ke keranjang
-              </p>
             </div>
-          </div>
-          <div class="col-lg-4 borderLeft">
-            <div class="service_block">
-              <div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="fa fa-credit-card"></i></span>
+            <div class="col-lg-4 borderLeft">
+              <div class="service_block">
+                <div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa fa-truck"></i></span>
+                </div>
+                <h3 class="animated fadeInUp wow">Fast Delivery</h3>
+                <p class="animated fadeInDown wow">Pengiriman Cepat, Secepat Badai Seroja</p>
               </div>
-              <h3 class="animated fadeInUp wow">Pembayaran Mudah</h3>
-              <p class="animated fadeInDown wow">Nikmati Pembayaran Yang Cepat dan Mudah</p>
-            </div>
-          </div>
-          <div class="col-lg-4 borderLeft">
-            <div class="service_block">
-              <div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa fa-truck"></i></span>
-              </div>
-              <h3 class="animated fadeInUp wow">Fast Delivery</h3>
-              <p class="animated fadeInDown wow">Pengiriman Cepat, Secepat Badai Seroja</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!--Service-->
+    </section>
+    <!--Service-->
 
 
 
 
-  <!-- Portfolio -->
-  <section id="Portfolio" class="content">
+    <!-- Portfolio -->
+    <section id="Portfolio" class="content">
 
-    <!-- Container -->
-    <div class="container portfolio_title">
+      <!-- Container -->
+      <div class="container portfolio_title">
 
-      <!-- Title -->
-      <div class="section-title">
-        <h2>Galeri</h2>
+        <!-- Title -->
+        <div class="section-title">
+          <h2>Galeri</h2>
+        </div>
+        <!--/Title -->
+
       </div>
-      <!--/Title -->
+      <!-- Container -->
 
-    </div>
-    <!-- Container -->
+      <div class="portfolio-top"></div>
 
-    <div class="portfolio-top"></div>
+      <!-- Portfolio Filters -->
+      <div class="portfolio">
 
-    <!-- Portfolio Filters -->
-    <div class="portfolio">
+        <div id="filters" class="sixteen columns">
+          <ul class="clearfix">
+            <li><a id="all" href="#" data-filter="*" class="active">
+                <h5>All</h5>
+              </a></li>
+            <li><a class="" href="#" data-filter=".prototype">
+                <h5>Serum</h5>
+              </a></li>
+            <li><a class="" href="#" data-filter=".design">
+                <h5>Sunscreen</h5>
+              </a></li>
+            <li><a class="" href="#" data-filter=".android">
+                <h5>Pelembab</h5>
+              </a></li>
+            <li><a class="" href="#" data-filter=".appleIOS">
+                <h5>Toner</h5>
+              </a></li>
+            <li><a class="" href="#" data-filter=".web">
+                <h5>Cleanser</h5>
+              </a></li>
+          </ul>
+        </div>
+        <!--/Portfolio Filters -->
 
-      <div id="filters" class="sixteen columns">
-        <ul class="clearfix">
-          <li><a id="all" href="#" data-filter="*" class="active">
-              <h5>All</h5>
-            </a></li>
-          <li><a class="" href="#" data-filter=".prototype">
-              <h5>Serum</h5>
-            </a></li>
-          <li><a class="" href="#" data-filter=".design">
-              <h5>Sunscreen</h5>
-            </a></li>
-          <li><a class="" href="#" data-filter=".android">
-              <h5>Pelembab</h5>
-            </a></li>
-          <li><a class="" href="#" data-filter=".appleIOS">
-              <h5>Toner</h5>
-            </a></li>
-          <li><a class="" href="#" data-filter=".web">
-              <h5>Cleanser</h5>
-            </a></li>
-        </ul>
+        <!-- Portfolio Wrapper -->
+        <div class="isotope fadeInLeft animated wow" style="position: relative; overflow: hidden; height: 480px;"
+          id="portfolio_wrapper">
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four   appleIOS isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Toner/toner1.jpeg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Toner</h4>
+              </div>
+            </div>
+          </div>
+          <!--/Portfolio Item -->
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four   appleIOS isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Toner/toner2.jpeg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Toner</h4>
+              </div>
+            </div>
+          </div>
+          <!--/Portfolio Item -->
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four   appleIOS isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Toner/Toner3.jpeg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Toner</h4>
+              </div>
+            </div>
+          </div>
+          <!--/Portfolio Item -->
+
+
+          <!-- Portfolio Item-->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four  design isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Sunscreen/sunscreen1.jpeg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Sunscreen</h4>
+              </div>
+            </div>
+          </div>
+          <!--/Portfolio Item -->
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four  design  isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Sunscreen/sunscreen2.jpeg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Sunscreen</h4>
+              </div>
+            </div>
+          </div>
+          <!--/Portfolio Item-->
+
+          <!-- Portfolio Item-->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four  prototype isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Serum/serum1.png"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Implora Serum</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four  prototype isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Serum/serum 2.webp"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Ponds Serum</h4>
+              </div>
+            </div>
+          </div>
+          <!-- Portfolio Item -->
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four  web isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Cleanser/cleanser.jpeg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Cleanser</h4>
+              </div>
+            </div>
+          </div>
+          <!--/Portfolio Item -->
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four  web isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Cleanser/cleanser1.jpg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Cleanser</h4>
+              </div>
+            </div>
+          </div>
+          <!--/Portfolio Item -->
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four  web isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Cleanser/cleanser2.jpg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Cleanser</h4>
+              </div>
+            </div>
+          </div>
+          <!--/Portfolio Item -->
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four   android isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Pelembab/pelembab1.jpeg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Pelembab</h4>
+              </div>
+            </div>
+            </a>
+          </div>
+          <!--/Portfolio Item -->
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four   android isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Pelembab/pelembab2.jpeg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Pelembab</h4>
+              </div>
+            </div>
+            </a>
+          </div>
+          <!--/Portfolio Item -->
+
+          <!-- Portfolio Item -->
+          <div
+            style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
+            class="portfolio-item one-four   android isotope-item">
+            <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Pelembab/pelembab3.jpeg"
+                alt="Portfolio 1"> </div>
+            <div class="item_overlay">
+              <div class="item_info">
+                <h4 class="project_name">Pelembab</h4>
+              </div>
+            </div>
+            </a>
+          </div>
+          <!--/Portfolio Item -->
+
+        </div>
+        <!--/Portfolio Wrapper -->
+
       </div>
       <!--/Portfolio Filters -->
 
-      <!-- Portfolio Wrapper -->
-      <div class="isotope fadeInLeft animated wow" style="position: relative; overflow: hidden; height: 480px;"
-        id="portfolio_wrapper">
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four   appleIOS isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Toner/toner1.jpeg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Toner</h4>
-            </div>
-          </div>
-        </div>
-        <!--/Portfolio Item -->
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four   appleIOS isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Toner/toner2.jpeg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Toner</h4>
-            </div>
-          </div>
-        </div>
-        <!--/Portfolio Item -->
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four   appleIOS isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Toner/Toner3.jpeg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Toner</h4>
-            </div>
-          </div>
-        </div>
-        <!--/Portfolio Item -->
+      <div class="portfolio_btm"></div>
 
 
-        <!-- Portfolio Item-->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four  design isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Sunscreen/sunscreen1.jpeg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Sunscreen</h4>
-            </div>
-          </div>
-        </div>
-        <!--/Portfolio Item -->
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four  design  isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Sunscreen/sunscreen2.jpeg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Sunscreen</h4>
-            </div>
-          </div>
-        </div>
-        <!--/Portfolio Item-->
-
-        <!-- Portfolio Item-->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four  prototype isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Serum/serum1.png"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Implora Serum</h4>
-            </div>
-          </div>
-        </div>
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four  prototype isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Serum/serum 2.webp"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Ponds Serum</h4>
-            </div>
-          </div>
-        </div>
-        <!-- Portfolio Item -->
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four  web isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Cleanser/cleanser.jpeg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Cleanser</h4>
-            </div>
-          </div>
-        </div>
-        <!--/Portfolio Item -->
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four  web isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Cleanser/cleanser1.jpg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Cleanser</h4>
-            </div>
-          </div>
-        </div>
-        <!--/Portfolio Item -->
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four  web isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Cleanser/cleanser2.jpg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Cleanser</h4>
-            </div>
-          </div>
-        </div>
-        <!--/Portfolio Item -->
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four   android isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Pelembab/pelembab1.jpeg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Pelembab</h4>
-            </div>
-          </div>
-          </a>
-        </div>
-        <!--/Portfolio Item -->
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four   android isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Pelembab/pelembab2.jpeg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Pelembab</h4>
-            </div>
-          </div>
-          </a>
-        </div>
-        <!--/Portfolio Item -->
-
-        <!-- Portfolio Item -->
-        <div
-          style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-          class="portfolio-item one-four   android isotope-item">
-          <div class="portfolio_img"> <img style="width: 350px ; height: 260px; " src="Pelembab/pelembab3.jpeg"
-              alt="Portfolio 1"> </div>
-          <div class="item_overlay">
-            <div class="item_info">
-              <h4 class="project_name">Pelembab</h4>
-            </div>
-          </div>
-          </a>
-        </div>
-        <!--/Portfolio Item -->
-
+      <div id="project_container">
+        <div class="clear"></div>
+        <div id="project_data"></div>
       </div>
-      <!--/Portfolio Wrapper -->
-
-    </div>
-    <!--/Portfolio Filters -->
-
-    <div class="portfolio_btm"></div>
 
 
-    <div id="project_container">
-      <div class="clear"></div>
-      <div id="project_data"></div>
-    </div>
+    </section>
+    <!--/Portfolio -->
 
+    <section class="page_section" id="clients">
+      <!--page_section-->
+      <!--page_section-->
+      <div class="client_logos">
+        <!--client_logos-->
+        <div class="container">
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!--client_logos-->
 
-  </section>
-  <!--/Portfolio -->
-
-  <section class="page_section" id="clients">
-    <!--page_section-->
-    <!--page_section-->
-    <div class="client_logos">
-      <!--client_logos-->
+    <section class="page_section team" id="team">
+      <!--main-section team-start-->
       <div class="container">
-        </ul>
-      </div>
-    </div>
-  </section>
-  <!--client_logos-->
+        <h2>Testimonials</h2>
+        <h6>Beberapa Komentar Mengenai Produk Kami</h6>
 
-  <section class="page_section team" id="team">
-    <!--main-section team-start-->
-    <div class="container">
-      <h2>Testimonials</h2>
-      <h6>Beberapa Komentar Mengenai Produk Kami</h6>
-
-      <div class="member-area">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="member wow bounceInUp animated">
-              <div class="member-container" data-wow-delay=".1s">
-                <div class="inner-container">
-                  <div class="author-avatar">
-                    <img class="img-circle" src="img/team_pic1.jpg" alt="Team Menber">
-                  </div><!-- /.author-avatar -->
-
-                  <div class="member-details">
-                    <div class="member-top">
-                      <h4 class="name">
-                        John Doe
-                      </h4>
-                      <span class="designation">
-                        Manager
-                      </span>
-                    </div><!-- /.member-top -->
-
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.
-                      Dolor sit amet, consectetur adipiscing elit proin consequat.
-                    </p>
-                    <div class="member-social-link">
-                      <a href="#" class="twitter-btn"><i class="fa fa-twitter"></i></a>
-                      <a href="#" class="facebook-btn"><i class="fa fa-facebook"></i></a>
-                      <a href="#" class="dribbble-btn"><i class="fa fa-dribbble"></i></a>
-                      <a href="#" class="linkedin-btn"><i class="fa fa-linkedin"></i></a>
-                    </div><!-- /.member-social-link -->
-                  </div><!-- /.member-details -->
-                </div><!-- /.inner-container -->
-              </div><!-- /.member-container -->
-            </div><!-- /.member -->
-          </div>
-
-          <div class="col-md-6">
-            <div class="member wow bounceInUp animated">
-              <div class="member-container" data-wow-delay=".3s">
-                <div class="inner-container">
-                  <div class="author-avatar">
-                    <img class="img-circle" src="img/team_pic2.jpg" alt="Team Menber">
-                  </div><!-- /.author-avatar -->
-                  <div class="member-details">
-                    <div class="member-top">
-                      <h4 class="name">
-                        Mark lores
-                      </h4>
-                      <span class="designation">
-                        Web Developer
-                      </span>
-                    </div><!-- /.member-top -->
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.
-                      Dolor sit amet, consectetur adipiscing elit proin consequat.
-                    </p>
-                    <div class="member-social-link">
-                      <a href="#" class="twitter-btn"><i class="fa fa-twitter"></i></a>
-                      <a href="#" class="facebook-btn"><i class="fa fa-facebook"></i></a>
-                      <a href="#" class="dribbble-btn"><i class="fa fa-dribbble"></i></a>
-                      <a href="#" class="linkedin-btn"><i class="fa fa-linkedin"></i></a>
-                    </div><!-- /.member-social-link -->
-                  </div><!-- /.member-details -->
-                </div><!-- /.inner-container -->
-              </div><!-- /.member-container -->
-            </div><!-- /.member -->
-          </div>
-
-          <div class="col-md-6">
-            <div class="member wow bounceInUp animated">
-              <div class="member-container" data-wow-delay=".5s">
-                <div class="inner-container">
-                  <div class="author-avatar">
-                    <img class="img-circle" src="img/team_pic3.jpg" alt="Team Menber">
-                  </div><!-- /.author-avatar -->
-                  <div class="member-details">
-                    <div class="member-top">
-                      <h4 class="name">
-                        Thomas Lere
-                      </h4>
-                      <span class="designation">
-                        UX Designer
-                      </span>
-                    </div><!-- /.member-top -->
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.
-                      Dolor sit amet, consectetur adipiscing elit proin consequat.
-                    </p>
-                    <div class="member-social-link">
-                      <a href="#" class="twitter-btn"><i class="fa fa-twitter"></i></a>
-                      <a href="#" class="facebook-btn"><i class="fa fa-facebook"></i></a>
-                      <a href="#" class="dribbble-btn"><i class="fa fa-dribbble"></i></a>
-                      <a href="#" class="linkedin-btn"><i class="fa fa-linkedin"></i></a>
-                    </div><!-- /.member-social-link -->
-                  </div><!-- /.member-details -->
-                </div><!-- /.inner-container -->
-              </div><!-- /.member-container -->
-            </div><!-- /.member -->
-          </div>
-
-          <div class="col-md-6">
-            <div class="member wow bounceInUp animated">
-              <div class="member-container" data-wow-delay=".7s">
-                <div class="inner-container">
-                  <div class="author-avatar">
-                    <img class="img-circle" src="img/team_pic4.jpg" alt="Team Menber">
-                  </div><!-- /.author-avatar -->
-                  <div class="member-details">
-                    <div class="member-top">
-                      <h4 class="name">
-                        Grintel Mark
-                      </h4>
-                      <span class="designation">
-                        Web Designer
-                      </span>
-                    </div><!-- /.member-top -->
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.
-                      Dolor sit amet, consectetur adipiscing elit proin consequat.
-                    </p>
-                    <div class="member-social-link">
-                      <a href="#" class="twitter-btn"><i class="fa fa-twitter"></i></a>
-                      <a href="#" class="facebook-btn"><i class="fa fa-facebook"></i></a>
-                      <a href="#" class="dribbble-btn"><i class="fa fa-dribbble"></i></a>
-                      <a href="#" class="linkedin-btn"><i class="fa fa-linkedin"></i></a>
-                    </div><!-- /.member-social-link -->
-                  </div><!-- /.member-details -->
-                </div><!-- /.inner-container -->
-              </div><!-- /.member-container -->
-            </div><!-- /.member -->
-          </div>
-        </div><!-- /.row -->
-      </div>
-
-
-    </div>
-  </section><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-  <!--/Team-->
-  <!--Footer-->
-  <footer class="footer_wrapper" id="contact">
-    <div class="container">
-      <section class="page_section contact" id="contact">
-        <div class="contact_section">
-          <h2>Contact Us</h2>
+        <div class="member-area">
           <div class="row">
-            <div class="col-lg-4">
+            <div class="col-md-6">
+              <div class="member wow bounceInUp animated">
+                <div class="member-container" data-wow-delay=".1s">
+                  <div class="inner-container">
+                    <div class="author-avatar">
+                      <img class="img-circle" src="img/team_pic1.jpg" alt="Team Menber">
+                    </div><!-- /.author-avatar -->
 
-            </div>
-            <div class="col-lg-4">
+                    <div class="member-details">
+                      <div class="member-top">
+                        <h4 class="name">
+                          John Doe
+                        </h4>
+                        <span class="designation">
+                          Manager
+                        </span>
+                      </div><!-- /.member-top -->
 
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.
+                        Dolor sit amet, consectetur adipiscing elit proin consequat.
+                      </p>
+                      <div class="member-social-link">
+                        <a href="#" class="twitter-btn"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook-btn"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="dribbble-btn"><i class="fa fa-dribbble"></i></a>
+                        <a href="#" class="linkedin-btn"><i class="fa fa-linkedin"></i></a>
+                      </div><!-- /.member-social-link -->
+                    </div><!-- /.member-details -->
+                  </div><!-- /.inner-container -->
+                </div><!-- /.member-container -->
+              </div><!-- /.member -->
             </div>
-            <div class="col-lg-4">
 
+            <div class="col-md-6">
+              <div class="member wow bounceInUp animated">
+                <div class="member-container" data-wow-delay=".3s">
+                  <div class="inner-container">
+                    <div class="author-avatar">
+                      <img class="img-circle" src="img/team_pic2.jpg" alt="Team Menber">
+                    </div><!-- /.author-avatar -->
+                    <div class="member-details">
+                      <div class="member-top">
+                        <h4 class="name">
+                          Mark lores
+                        </h4>
+                        <span class="designation">
+                          Web Developer
+                        </span>
+                      </div><!-- /.member-top -->
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.
+                        Dolor sit amet, consectetur adipiscing elit proin consequat.
+                      </p>
+                      <div class="member-social-link">
+                        <a href="#" class="twitter-btn"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook-btn"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="dribbble-btn"><i class="fa fa-dribbble"></i></a>
+                        <a href="#" class="linkedin-btn"><i class="fa fa-linkedin"></i></a>
+                      </div><!-- /.member-social-link -->
+                    </div><!-- /.member-details -->
+                  </div><!-- /.inner-container -->
+                </div><!-- /.member-container -->
+              </div><!-- /.member -->
             </div>
-          </div>
+
+            <div class="col-md-6">
+              <div class="member wow bounceInUp animated">
+                <div class="member-container" data-wow-delay=".5s">
+                  <div class="inner-container">
+                    <div class="author-avatar">
+                      <img class="img-circle" src="img/team_pic3.jpg" alt="Team Menber">
+                    </div><!-- /.author-avatar -->
+                    <div class="member-details">
+                      <div class="member-top">
+                        <h4 class="name">
+                          Thomas Lere
+                        </h4>
+                        <span class="designation">
+                          UX Designer
+                        </span>
+                      </div><!-- /.member-top -->
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.
+                        Dolor sit amet, consectetur adipiscing elit proin consequat.
+                      </p>
+                      <div class="member-social-link">
+                        <a href="#" class="twitter-btn"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook-btn"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="dribbble-btn"><i class="fa fa-dribbble"></i></a>
+                        <a href="#" class="linkedin-btn"><i class="fa fa-linkedin"></i></a>
+                      </div><!-- /.member-social-link -->
+                    </div><!-- /.member-details -->
+                  </div><!-- /.inner-container -->
+                </div><!-- /.member-container -->
+              </div><!-- /.member -->
+            </div>
+
+            <div class="col-md-6">
+              <div class="member wow bounceInUp animated">
+                <div class="member-container" data-wow-delay=".7s">
+                  <div class="inner-container">
+                    <div class="author-avatar">
+                      <img class="img-circle" src="img/team_pic4.jpg" alt="Team Menber">
+                    </div><!-- /.author-avatar -->
+                    <div class="member-details">
+                      <div class="member-top">
+                        <h4 class="name">
+                          Grintel Mark
+                        </h4>
+                        <span class="designation">
+                          Web Designer
+                        </span>
+                      </div><!-- /.member-top -->
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.
+                        Dolor sit amet, consectetur adipiscing elit proin consequat.
+                      </p>
+                      <div class="member-social-link">
+                        <a href="#" class="twitter-btn"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook-btn"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="dribbble-btn"><i class="fa fa-dribbble"></i></a>
+                        <a href="#" class="linkedin-btn"><i class="fa fa-linkedin"></i></a>
+                      </div><!-- /.member-social-link -->
+                    </div><!-- /.member-details -->
+                  </div><!-- /.inner-container -->
+                </div><!-- /.member-container -->
+              </div><!-- /.member -->
+            </div>
+          </div><!-- /.row -->
         </div>
-        <div class="row">
 
-          <div class="col-lg-12 wow fadeInLeft delay-06s">
-            <div class="form">
-              <input class="input-text" type="text" name="" value="Your Name *"
-                onFocus="if(this.value==this.defaultValue)this.value='';"
-                onBlur="if(this.value=='')this.value=this.defaultValue;">
-              <input class="input-text" type="text" name="" value="Your E-mail *"
-                onFocus="if(this.value==this.defaultValue)this.value='';"
-                onBlur="if(this.value=='')this.value=this.defaultValue;">
-              <textarea class="input-text text-area" cols="0" rows="0"
-                onFocus="if(this.value==this.defaultValue)this.value='';"
-                onBlur="if(this.value=='')this.value=this.defaultValue;">Your Message *</textarea>
-              <input class="input-btn" type="submit" value="send message">
+
+      </div>
+      <!--/Team-->
+      <!--Footer-->
+      <footer class="footer_wrapper" id="contact">
+        <div class="container">
+          <section class="page_section contact" id="contact">
+            <div class="contact_section">
+              <h2>Contact Us</h2>
+              <div class="row">
+                <div class="col-lg-4">
+
+                </div>
+                <div class="col-lg-4">
+
+                </div>
+                <div class="col-lg-4">
+
+                </div>
+              </div>
             </div>
-          </div>
+            <div class="row">
 
+              <div class="col-lg-12 wow fadeInLeft delay-06s">
+                <div class="form">
+                  <input class="input-text" type="text" name="" value="Your Name *"
+                    onFocus="if(this.value==this.defaultValue)this.value='';"
+                    onBlur="if(this.value=='')this.value=this.defaultValue;">
+                  <input class="input-text" type="text" name="" value="Your E-mail *"
+                    onFocus="if(this.value==this.defaultValue)this.value='';"
+                    onBlur="if(this.value=='')this.value=this.defaultValue;">
+                  <textarea class="input-text text-area" cols="0" rows="0"
+                    onFocus="if(this.value==this.defaultValue)this.value='';"
+                    onBlur="if(this.value=='')this.value=this.defaultValue;">Your Message *</textarea>
+                  <input class="input-btn" type="submit" value="send message">
+                </div>
+              </div>
+
+            </div>
+          </section>
         </div>
-      </section>
-    </div>
-    <div class="container">
-      <div class="footer_bottom"><span>Copyright ©BetaGlowing Shop 2023</a>.
-        </span> </div>
-    </div>
+    </section>
+    <div class="footer_bottom"><span>Copyright ©BetaGlowing Shop 2023</a>.
+      </span> </div>
+  </div>
   </footer>
 
-  <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
-  <script type="text/javascript" src="js/jquery.nav.js"></script>
-  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-  <script type="text/javascript" src="js/jquery.isotope.js"></script>
-  <script type="text/javascript" src="js/wow.js"></script>
-  <script type="text/javascript" src="js/custom.js"></script>
-  <script src="https://kit.fontawesome.com/1b05bcc72f.js" crossorigin="anonymous"></script>
+  </div>
+  <div class="container">
+
+    <div class="pembungkus">
+      <div class="cssload-container">
+        <div class="cssload-whirlpool"></div>
+      </div>
+    </div>
+
+    <script>
+      function myFunction() {
+        document.querySelector(".pembungkus").style.display = "none";
+      }
+      //call function after 5s
+      setTimeout(myFunction, 000);
+    </script>
+
+
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
+    <script type="text/javascript" src="js/jquery.nav.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/jquery.isotope.js"></script>
+    <script type="text/javascript" src="js/wow.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="https://kit.fontawesome.com/1b05bcc72f.js" crossorigin="anonymous"></script>
 
 </body>
 
