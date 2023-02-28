@@ -1,7 +1,7 @@
 <?php 
 require("../config.php");
 
-if(!isset($_SESSION["user"])){
+if(!isset($_SESSION["admin"])){
     header("Location: ../index.php");
     exit;
 }
@@ -67,12 +67,12 @@ if(isset($_POST['Simpan'])){
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>User Menu</span></div>
+                    <div class="sidebar-brand-text mx-3"><span>Admin Menu</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link active" href="profile.php"><i class="fas fa-user"></i><span>Profile</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="keranjang.php"><i class="fas fa-cart-plus"></i><span>Keranjang</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="produk.php"><i class="fas fa-list"></i><span>Produk</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../index.php"><i class="fas fa-home"></i><span>Halaman Utama</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
@@ -166,7 +166,7 @@ if(isset($_POST['Simpan'])){
                                 <div class="col">
                                     <div class="card shadow mb-3">
                                         <div class="card-header py-3">
-                                            <p class="text-primary m-0 fw-bold">Ubah Data Pelanggan</p>
+                                            <p class="text-primary m-0 fw-bold">User Settings</p>
                                         </div>
                                         <div class="card-body">
                                             <form action="" method="post">

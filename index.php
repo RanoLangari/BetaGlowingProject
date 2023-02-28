@@ -59,11 +59,15 @@ $row = mysqli_fetch_assoc($data);
               <li><a href="#team" class="scroll-link">Testimonials</a></li>
               <li><a href="#contact" class="scroll-link">Contact</a></li>
               <li style=" justify-content: flex-end; margin-left: 30px;">
-                <?php if (isset($_SESSION['login'])) : ?>
-                <a href="user/profile.php"> <i class="fa-solid fa-user" style="margin-right: 10px;"></i>Profile</a>
-                <?php else : ?>
+              <?php if(isset($_SESSION['admin'])): ?>
+                <a href="Admin/profile.php"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Profile</a>
+              <?php endif; ?>
+              <?php if(isset($_SESSION['user'])): ?>
+                <a href="user/profile.php"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Profile</a>
+              <?php endif; ?>
+              <?php if(!isset($_SESSION['user']) && !isset($_SESSION['admin'])): ?>
                 <a href="Gate/login.php"><i class="fa-solid fa-right-to-bracket" style="margin-right: 10px;" ></i>Login</a>
-                <?php endif; ?>
+              <?php endif; ?>
               </li>
             </ul>
           </div>

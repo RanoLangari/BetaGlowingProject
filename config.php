@@ -44,7 +44,7 @@ function registrasi($data)
     $Password = Password_hash($Password, PASSWORD_DEFAULT);
 
     // tambahkan user baru ke database
-    mysqli_query($conn, "INSERT INTO user VALUES('', '$Username','$email', '$Password')");
+    mysqli_query($conn, "INSERT INTO user VALUES('', '$Username','$email', '$Password','0')");
 
     return mysqli_affected_rows($conn);
 }
@@ -63,12 +63,22 @@ function Login($data)
         // cek Password
         $row = mysqli_fetch_assoc($result);
         if (Password_verify($Password, $row["pass"])) {
-
-            $idUser = $row["id"];
-            $_SESSION["login"] = true;
-            $_SESSION["id"] = $idUser;
-            header("Location: ../index.php");
-            exit;
+            if($row['role'] === '1')
+            {
+                $idUser = $row["id"];
+                $_SESSION["admin"] = true;
+                $_SESSION["id"] = $idUser;
+                header("Location: ../index.php");
+                exit;
+            }
+            else
+            {
+                $idUser = $row["id"];
+                $_SESSION["user"] = true;
+                $_SESSION["id"] = $idUser;
+                header("Location: ../index.php");
+                exit;
+            }
         }
     }
 
