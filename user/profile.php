@@ -9,6 +9,16 @@ if(!isset($_SESSION["user"])){
 $id = $_SESSION["id"];
 $row = query("SELECT * FROM user WHERE id = $id")[0];
 
+//query untuk mengambil gambar dari database
+
+
+//contoh cara menampilkan gambarnya di halaman profile
+
+// echo $gambar['gambar'];
+//cara lain?
+// echo "<img src='assets/img/profile/".$gambar['gambar']."' width='100' height='100'>";
+// echo $gambar['gambar'];
+
 if(isset($_POST["Submit"])){
     if(ubahdata($_POST) > 0){
         echo "
@@ -85,7 +95,8 @@ if(isset($_POST['Simpan'])){
                         <ul class="navbar-nav flex-nowrap ms-auto">     
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small"><?=$row["username"]?></span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"></a>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small"><?=$row["username"]?></span><?php echo "<img class='border rounded-circle img-profile' src='assets/img/profile/".$row
+                                ['gambar']."''>";?></a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href=""><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a>
                                         <div class="dropdown-divider"></div><a class="dropdown-item" href="../logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
                                     </div>
@@ -99,8 +110,9 @@ if(isset($_POST['Simpan'])){
                     <div class="row mb-3">
                         <div class="col-lg-4">
                             <div class="card mb-3">
-                                <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="assets/img/dogs/image2.jpeg" width="160" height="160">
-                                    <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>
+                                <div class="card-body text-center shadow">
+                                <?php echo "<img class='rounded-circle mb-3 mt-4' src='assets/img/profile/".$row['gambar']."' width='160' height='160'>";?>
+                                    <div class="mb-3"><label for="username"><?=$row['username']?></label></div>
                                 </div>
                             </div>
                             <div class="card shadow mb-4">
@@ -169,9 +181,12 @@ if(isset($_POST['Simpan'])){
                                             <p class="text-primary m-0 fw-bold">Ubah Data Pelanggan</p>
                                         </div>
                                         <div class="card-body">
-                                            <form action="" method="post">
+                                            <form action="" method="post" enctype="multipart/form-data">
                                                 <input type="text" name="id" value="<?=$row['id']?>" hidden>
                                                 <div class="row">
+                                                <div class="row">
+                                                        <div class="mb-3"><label class="form-label" for="gambar"><strong>Gambar Profile</strong></label><input class="form-control" type="file" id="gambar" name="gambar" required></div>
+                                                    </div>
                                                     <div class="col">
                                                         <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong></label><input class="form-control" type="text" id="username" name="username" value="<?=$row['username']?>" required></div>
                                                     </div>
