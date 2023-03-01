@@ -171,10 +171,12 @@ if(isset($_POST['Simpan'])){
                                         </div>
                                         <div class="card-body">
                                             <form action="" method="post" enctype="multipart/form-data">
-                                                <input type="text" name="id" value="<?=$row['id']?>" hidden>
+                                                <input type="hidden" name="id" value="<?=$row['id']?>" hidden>
+                                                <input type="hidden" name="gambarlama" value="<?=$row['gambar']?>" hidden>
+
                                                 <div class="row">
                                                 <div class="row">
-                                                        <div class="mb-3"><label class="form-label" for="gambar"><strong>Gambar Profile</strong></label><input class="form-control" type="file" id="gambar" name="gambar" required></div>
+                                                        <div class="mb-3"><label class="form-label" for="gambar"><strong>Gambar Profile</strong></label><input class="form-control" type="file" id="gambar" name="gambar"></div>
                                                     </div>
                                                     <div class="col">
                                                         <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong></label><input class="form-control" type="text" id="username" name="username" value="<?=$row['username']?>" required></div>

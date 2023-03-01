@@ -629,38 +629,20 @@ $row = mysqli_fetch_assoc($data);
           </section>
         </div>
     </section>
-    <div class="footer_bottom"><span>Copyright ©BetaGlowing Shop 2023</a>.
-      </span> </div>
-  </div>
+    <div class="footer_bottom"><span>Copyright ©BetaGlowing Shop 2023</a>
+      </span></div>
   </footer>
-
   </div>
-  <div class="container">
 
-    <div class="pembungkus">
-      <div class="cssload-container">
-        <div class="cssload-whirlpool"></div>
-      </div>
-    </div>
-
-    <script>
-      function myFunction() {
-        document.querySelector(".pembungkus").style.display = "none";
-      }
-      //call function after 5s
-      setTimeout(myFunction, 000);
-    </script>
-
-
-    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
-    <script type="text/javascript" src="js/jquery.nav.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.js"></script>
-    <script type="text/javascript" src="js/wow.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
-    <script src="https://kit.fontawesome.com/1b05bcc72f.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
+  <script type="text/javascript" src="js/jquery.nav.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="js/jquery.isotope.js"></script>
+  <script type="text/javascript" src="js/wow.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+  <script src="https://kit.fontawesome.com/1b05bcc72f.js" crossorigin="anonymous"></script>
 
 </body>
 

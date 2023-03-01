@@ -93,12 +93,15 @@ function ubahdata($data)
     $id = $data["id"];
     $Username = $data["username"];
     $email = $data["email"];
+    $gambarlama = $data["gambarlama"];
 
-
-    $gambar = upload();
-    if(!$gambar){
-        return false;
+    //cek apakah user pilih gambar baru atau tidak
+    if ($_FILES['gambar']['error'] === 4) {
+        $gambar = $gambarlama;
+    } else {
+        $gambar = upload();
     }
+
 
     $query = "UPDATE user SET
                 username = '$Username',
