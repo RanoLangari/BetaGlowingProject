@@ -191,4 +191,70 @@ function UbahPassword($data)
 
 }
 
+function TambahDataOrderan($data)
+{
+    global $conn;
+    $nama = $data["nama"];
+    $jumlah = $data["jumlah"];
+    $harga = $data["harga"];
+    $kategori = $data["kategori"];
+
+    $gambar = upload();
+    if (!$gambar) {
+        return false;
+    }
+
+    $query = "INSERT INTO orderan VALUES
+                ('','$nama','$gambar','$jumlah','$harga','$kategori')
+                ";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+
+}
+function UbahDataBarang($data)
+{
+    global$conn;
+    $id = $data["id"];
+    $nama = $data["nama"];
+    $jumlah = $data["jumlah"];
+    $harga = $data["harga"];
+    $kategori = $data["kategori"];
+    $gambarlama = $data["gambarlama"];
+
+    //cek apakah user pilih gambar baru atau tidak
+    if ($_FILES['gambar']['error'] === 4) {
+        $gambar = $gambarlama;
+    } else {
+        $gambar = upload();
+    }
+
+    $query = "UPDATE orderan SET
+                nama = '$nama',
+                gambar = '$gambar',
+                jumlah = '$jumlah',
+                harga =  '$harga',
+                kategori = '$kategori'
+                WHERE id = $id
+                ";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+
+
+
+
+}
+
+function HapusBarang($data)
+{
+    global $conn;
+    $id = $data["id"];
+
+    //create query to delete where id = $id
+    $query = "DELETE FROM orderan WHERE id = $id";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+    
+
+}
+
 ?>
